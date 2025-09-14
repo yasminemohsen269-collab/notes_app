@@ -25,7 +25,7 @@ class NoteItem extends StatelessWidget {
                 "Build your career with yasmine mohsen",
                 style: TextStyle(
                   color: Colors.black.withOpacity(0.5),
-                  fontSize: 18,
+                  fontSize: 17,
                 ),
               ),
             ),
