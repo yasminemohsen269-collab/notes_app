@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:notesapp/utils/app_color.dart';
 import 'package:notesapp/widgets/custom_bottom.dart';
 import 'package:notesapp/widgets/custom_text_field.dart';
 
