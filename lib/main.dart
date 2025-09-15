@@ -1,11 +1,20 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:notesapp/utils/app_words.dart';
 import 'package:notesapp/views/notes_view.dart';
 
 void main() async {
-  await Hive.initFlutter();
-  await Hive.openBox(AppWords.kNotesBox);
+  WidgetsFlutterBinding.ensureInitialized();
+
+  if (kIsWeb) {
+    // على الويب مش محتاجين initFlutter
+    await Hive.openBox(AppWords.kNotesBox);
+  } else {
+    await Hive.initFlutter();
+    await Hive.openBox(AppWords.kNotesBox);
+  }
+
   runApp(const NotesApp());
 }
 
@@ -16,9 +25,8 @@ class NotesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-
       theme: ThemeData(brightness: Brightness.dark, fontFamily: "Poppins"),
-      home: NotesView(),
+      home: const NotesView(),
     );
   }
 }
