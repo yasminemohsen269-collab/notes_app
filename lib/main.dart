@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:notesapp/models/note_model.dart';
 import 'package:notesapp/utils/app_words.dart';
 import 'package:notesapp/views/notes_view.dart';
 
@@ -10,9 +11,11 @@ void main() async {
   if (kIsWeb) {
     // على الويب مش محتاجين initFlutter
     await Hive.openBox(AppWords.kNotesBox);
+    Hive.registerAdapter(NoteModelAdapter());
   } else {
     await Hive.initFlutter();
     await Hive.openBox(AppWords.kNotesBox);
+    Hive.registerAdapter(NoteModelAdapter());
   }
 
   runApp(const NotesApp());
