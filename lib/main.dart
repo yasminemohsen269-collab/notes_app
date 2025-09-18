@@ -12,16 +12,18 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   if (kIsWeb) {
-    // على الويب مش محتاجين initFlutter
     Bloc.observer = SimpleBlocObserver();
-    await Hive.openBox<NoteModel>(AppWords.kNotesBox);
-    Hive.registerAdapter(NoteModelAdapter());
+
+    Hive.registerAdapter(NoteModelAdapter()); // 👈 الأول
+
+    await Hive.openBox<NoteModel>(AppWords.kNotesBox); // 👈 بعده
   } else {
     await Hive.initFlutter();
     Bloc.observer = SimpleBlocObserver();
 
-    await Hive.openBox<NoteModel>(AppWords.kNotesBox);
     Hive.registerAdapter(NoteModelAdapter());
+
+    await Hive.openBox<NoteModel>(AppWords.kNotesBox); // 👈 بعده
   }
 
   runApp(const NotesApp());
