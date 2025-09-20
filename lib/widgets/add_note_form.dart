@@ -49,7 +49,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                       title: title!,
                       subtitle: subtitle!,
                       date: DateTime.now().toString(),
-                      color: Colors.pinkAccent.value,
+                      color: const Color.fromARGB(255, 171, 84, 113).value,
                     );
                     BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
                   } else {
