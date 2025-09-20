@@ -5,9 +5,10 @@ class AppColor {
 }
 
 List<Color> kColors = const [
+  Color(0xff754B4D),
   Color(0xff414833),
   Color(0xff737A5D),
   Color(0xffA4AC86),
-  Color(0xffCCBFA3),
+  Color(0xffD7CE93),
   Color(0xffEBE3D2),
 ];
