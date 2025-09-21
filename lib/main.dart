@@ -14,16 +14,16 @@ void main() async {
   if (kIsWeb) {
     Bloc.observer = SimpleBlocObserver();
 
-    Hive.registerAdapter(NoteModelAdapter()); // 👈 الأول
+    Hive.registerAdapter(NoteModelAdapter());
 
-    await Hive.openBox<NoteModel>(AppWords.kNotesBox); // 👈 بعده
+    await Hive.openBox<NoteModel>(AppWords.kNotesBox);
   } else {
     await Hive.initFlutter();
     Bloc.observer = SimpleBlocObserver();
 
     Hive.registerAdapter(NoteModelAdapter());
 
-    await Hive.openBox<NoteModel>(AppWords.kNotesBox); // 👈 بعده
+    await Hive.openBox<NoteModel>(AppWords.kNotesBox);
   }
 
   runApp(const NotesApp());
