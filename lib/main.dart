@@ -6,7 +6,7 @@ import 'package:notesapp/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notesapp/models/note_model.dart';
 import 'package:notesapp/simple_bloc_observer.dart';
 import 'package:notesapp/utils/app_words.dart';
-import 'package:notesapp/views/notes_view.dart';
+import 'package:notesapp/views/splach_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +39,7 @@ class NotesApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(brightness: Brightness.dark, fontFamily: "Poppins"),
-        home: const NotesView(),
+        home: SplashView(),
       ),
     );
   }
